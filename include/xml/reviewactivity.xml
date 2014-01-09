@@ -1,0 +1,37 @@
+<product>
+	<data>
+		<product_id>reviewactivity</product_id>
+		<is_core>0</is_core>
+		<title>Review  Activities</title>
+		<description>Review all user activities in the past</description>
+		<version>3.0.1</version>
+		<latest_version></latest_version>
+		<last_check>1355398064</last_check>
+		<is_active>1</is_active>
+		<url></url>
+		<url_version_check></url_version_check>
+	</data>
+	<installs>
+		<install>
+			<version>3.0.1</version>
+			<install_code><![CDATA[$this->database()->query("
+CREATE TABLE IF NOT EXISTS `".phpfox::getT("review_activity")."` (
+  `review_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `year` int(11) NOT NULL DEFAULT '1970',
+  `user_id` int(10) unsigned NOT NULL,
+  `view_id` tinyint(1) NOT NULL DEFAULT '0',
+  `privacy` tinyint(1) NOT NULL DEFAULT '0',
+  `privacy_comment` tinyint(1) NOT NULL DEFAULT '0',
+  `description` mediumtext,
+  `time_stamp` int(11) NOT NULL DEFAULT '0',
+  `total_comment` int(11) NOT NULL DEFAULT '0',
+  `total_like` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`review_id`)
+) ENGINE=MyISAM  AUTO_INCREMENT=1 ;");]]></install_code>
+			<uninstall_code></uninstall_code>
+		</install>
+	</installs>
+	<modules>
+		<module_id>reviewactivity</module_id>
+	</modules>
+</product>
